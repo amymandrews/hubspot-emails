@@ -1,1 +1,1 @@
-# Hubspot Emails I have created
+# Hubspot Email Templates
