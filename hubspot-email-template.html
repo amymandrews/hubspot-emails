@@ -1,0 +1,592 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{% if content.html_title and content.html_title != '' %}{{ content.html_title }}{% else %}{{ content.body.subject }}{% endif %}</title>
+        <meta property="og:title" content="{% if content.html_title and content.html_title != '' %}{{ content.html_title }}{% else %}{{ content.body.subject }}{% endif %}">
+        <meta name="twitter:title" content="{% if content.html_title and content.html_title != '' %}{{ content.html_title }}{% else %}{{ content.body.subject }}{% endif %}">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        {% if content.meta_description %}<meta name="description" content="{{ content.meta_description }}"/>{% endif %}
+        <meta name="format-detection" content="telephone=no">
+        
+        {###########
+          
+          EMAIL TEMPLATE VARIABLES
+          
+        ###########}
+          
+        {# Colors #}
+        {% set backgroundColor  = "#eaeaea" %} {# Grey #}
+        
+        {% set baseColor        = "#2C2C2C" %} {# Dark Grey #}
+        
+        {% set accentColor1     = "#4b5057" %} {# Blue #}
+        {% set accentColor2     = "#f57300" %} {# Orange #}
+        {% set accentColor3     = "#EEB211" %} {# Yellow #}
+        
+        {% set lightGrey        = "#f5f5f5" %} {# Light Grey #}
+        {% set grey             = "#eaeaea" %} {# Grey #}
+        {% set darkGrey         = "#767676" %} {# Dark Grey #}
+        
+        {# Typography #}
+        {% set baseFontFamily    = "Arial, sans-serif" %}
+        {% set baseFontSize      = "16px" %}
+        {% set baseLineHeight    = "1.625" %}
+        
+        {# Containers #}
+        {% set bodyWidth         = "600px" %}
+        {% set bodyPadding       = "20px 30px" %}
+        {% set bodyPaddingSmall  = "15px 20px" %}
+        
+        
+
+        <style type="text/css" id="hs-inline-css">
+            /*<![CDATA[*/
+            /* everything in this style tag will be inlined onto matching elements */
+            
+            /*
+             * Global styles
+             */
+            html, body {
+              background: {{ backgroundColor }};
+              margin: 0;
+              padding: 0;
+            }
+            
+            body {
+              width: 100% !important;
+              min-width: 100%;
+              -webkit-text-size-adjust: 100%;
+              -ms-text-size-adjust: 100%;
+              margin: 0;
+              Margin: 0;
+              padding: 0;
+              -moz-box-sizing: border-box;
+              -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+            }
+            
+            .ExternalClass {
+              width: 100%;
+            }
+            
+            .ExternalClass,
+            .ExternalClass p,
+            .ExternalClass span,
+            .ExternalClass font,
+            .ExternalClass td,
+            .ExternalClass div {
+              line-height: 100%;
+            }
+            
+            img {
+              outline: none;
+              text-decoration: none;
+              -ms-interpolation-mode: bicubic;
+              width: auto;
+              max-width: 100%;
+              clear: both;
+              display: inline-block;
+              vertical-align: bottom;
+            }
+            
+            table {
+              border-spacing: 0;
+              border-collapse: collapse;
+              mso-table-lspace: 0pt;
+              mso-table-rspace: 0pt;
+            }
+            
+            body, table.body, p, td, th {
+              font-family: {{ baseFontFamily }};
+              font-size: {{ baseFontSize }};
+              line-height: {{ baseLineHeight }};
+              color: {{ baseColor }};
+            }
+            
+            td {
+              padding: 0;
+            }
+            
+            table.body {
+              background: {{ backgroundColor }};
+              height: 100%;
+              max-width: 100%;
+              width: 600px;
+              margin: 0 auto;
+              Margin: 0 auto;
+            }
+            
+            table.float-center, td.float-center, th.float-center {
+              margin: 0 auto;
+              Margin: 0 auto;
+              float: none;
+              text-align: center;
+            }
+            
+            center {
+              width: 100%;
+              margin: 0 auto;
+              Margin: 0 auto;
+            }
+            
+            table.container {
+              width: 100%;
+              margin: 0 auto;
+              Margin: 0 auto;
+              text-align: inherit;
+            }
+            
+            .email-padding {
+              padding: {{ bodyPadding }};
+              width: 100%;
+            }
+            
+            .email-padding-small {
+              padding: {{ bodyPaddingSmall }};
+              width: 100%;
+            }
+            
+            .email-web-link {
+              width: 100%;
+            }
+            
+            .email-web-link div {
+              text-align: right;
+              font-size: 9px;
+              color: {{ darkGrey }};
+              font-family: Arial, sans-serif;
+              margin: 5px 0;
+            }
+            
+            .email-web-link div a {
+              color: {{ darkGrey }};
+              text-decoration: underline;
+            }
+            
+            .spacer {
+              height: 6px;
+              width: 100%;
+            }
+            
+            
+            /*
+             * Body styles
+             */
+             
+             h3, h4, h5, h6 {
+               color: {{ baseColor }} !important;
+               margin-top: 0;
+             }
+             
+             h1 {
+               color: {{ baseColor }} !important;
+               font-weight: 700;
+               font-size: 19px;
+               margin: 0 0 5px;
+             }
+             
+             h2 {
+               color: {{ baseColor }} !important;
+               font-weight: 700;
+               font-size: 15px;
+               margin: 0 0 5px;
+             }
+            
+            .email-body {
+              width: 100%;
+              background: #fff;
+              padding: 0;
+            }
+            
+            .email-body-top {
+              text-align: center;
+            }
+            
+            .email-body-top .email-padding {
+              padding-bottom: 0 !important;
+            }
+            
+            .email-body-top .hr {
+              padding: 30px 0;
+              width: 100%;
+            }
+            
+            .email-body-top .hr td {
+              height: 1px;
+              line-height: 1px;
+              background: {{ grey }};
+            }
+            
+            .logo {
+              background: #fff;
+            }
+            
+            .top-bar {
+              background: {{ accentColor3 }};
+            }
+            
+            .top-bar h3 {
+              color: #fff !important;
+              font-size: 12px;
+              font-weight: 700;
+              margin: 0;
+            }
+            
+            .email-content {
+              padding-bottom: 30px;
+            }
+            
+            .email-sections {
+              width: 100%;
+              background: #fff;
+              padding: 15px 0;
+            }
+            
+            .news-item {
+              font-size: 12px;
+            }
+            
+            .news-header h2 {
+              font-size: 16px;
+              margin: 0 0 20px;
+            }
+            
+            .news-item p {
+              margin: 0 0 10px !important;
+              font-size: 12px;
+            }
+            
+            .news-item a {
+              color: {{ accentColor1 }};
+              text-decoration: underline;
+              font-size: 14px;
+            }
+            
+            .news-image {
+              width: 44.444444444444444%;
+            }
+            
+            .news-content {
+              padding-left: 30px;
+            }
+            
+            .email-content ul {
+              margin: 0 0 20px;
+            }
+            
+            .email-content ul li {
+              margin-bottom: 5px;
+            }
+            
+            .email-content a {
+              color: {{ accentColor2 }};
+              text-decoration: underline;
+            }
+            
+            .email-body-bottom h2 {
+              font-size: 20px !important;
+              margin: 20px 0;
+            }
+            
+            .email-body-bottom p {
+              margin: 0 0 30px;
+              font-size: 13px;
+            }
+            
+            .email-body-bottom .email-padding {
+              padding-bottom: 0;
+            }
+            
+            
+            /*
+             * Social icon styles
+             */
+            
+            .email-social {
+              background: {{ accentColor3 }};
+            }
+            
+            .email-social .email-padding-small {
+              padding-bottom: 0 !important;
+            }
+            
+            .social-wrapper {
+              width: 100%;
+              text-align: center;
+              margin: 0 auto;
+            }
+            
+            .social-wrapper div {
+              vertical-align: bottom;
+            }
+            
+            .social-wrapper div,
+            .social-wrapper a {
+              display: inline-block;
+            }
+            
+            .social-wrapper img {
+              vertical-align: middle;
+              display: block;
+            }
+            
+            /*
+             * Footer styles
+             */
+             
+            .email-footer {
+              padding: 20px;
+            }
+            
+            #footer {
+              text-align: center;
+              font-size: 9px;
+              color: {{ darkGrey }};
+              font-family: Arial, sans-serif;
+              margin: 0;
+            }
+            
+            #footer a {
+              text-decoration: underline;
+              color: {{ darkGrey }};
+            }
+            
+             @media(max-width: 550px){
+                td.news-image, .news-content {
+                    width: 100% !important;
+                    display: block !important;
+                    margin: 5px 0px !important;
+                    padding: 0px !important;
+                }
+                td.news-image img {
+                    width: 100% !important;
+                    height: auto !important;
+                }
+                td.top-bar.email-padding-small tr, td.top-bar.email-padding-small td {
+                    width: 100%;
+                    max-width: 100%;
+                    display: block;
+                    text-align: center;
+                }
+                .container {
+                    width: auto;
+                    max-width: 100%;
+                }
+                table, tr, td {
+                    width: 100% !important;
+                }
+            }
+            
+            /*]]>*/
+        </style>
+       </head>
+    <body>
+      <!-- Preview text -->
+      <div id="preview_text" style="display:none!important">{% text "preview_text" label="Preview Text <span class=help-text>This will be used as the preview text that displays in some email clients</span>", value="", no_wrapper=True %}</div>
+      <table class="body">
+        <tr>
+          <td class="float-center" align="center" valign="top">
+            <center>
+              <table align="center" class="container float-center">
+                  <tr>
+                      <td align="center" valign="top">
+                          <!-- View as webpage link -->
+                          {% if content.create_page %}
+                          <table class="email-web-link">
+                              <tr>
+                                  <td align="center" valign="top">
+                                      <div>
+                                          Not rendering correctly? View this email as a web page <a class="hubspot-mergetag" data-viewaswebpage="true" href="{{ view_as_page_url }}">here</a>.
+                                      </div>
+                                  </td>
+                              </tr>
+                          </table>
+                          {% endif %}
+                      </td>
+                  </tr>
+                  
+                  <tr>
+                      <td align="center" valign="top">
+                          <table class="container">
+                              <tr>
+                                  <td class="top-bar email-padding-small">
+                                    
+                                      <table class="container">
+                                          <tr>
+                                              <td align="left" valign="middle">
+                                                <h3>Call us at {{ site_settings.company_phone }}</h3>
+                                              </td>
+                                              
+                                              <td align="right" valign="middle">
+                                                
+                                                <table class="email-social">
+                                                    <tr>
+                                                        <td align="center" valign="top" class="social-wrapper">
+                                                            {% widget_block social_sharing "my_social_sharing" label='Social Sharing', use_page_url=True, overrideable=True  %}
+                                                              {% widget_attribute "pinterest" is_json=True %}{"custom_link_format": "", "pinterest_media": "http://cdn1.hubspot.com/hub/XXXXXX/emails/icons/pinterest.jpg", "enabled": false, "network": "pinterest"}{% end_widget_attribute %}
+                                                              {% widget_attribute "twitter" is_json=True %}{"custom_link_format": "", "enabled": true, "network": "twitter", "img_src": "//cdn2.hubspot.net/hubfs/XXXXXX/emails/icons/twitter.png"}{% end_widget_attribute %}
+                                                              {% widget_attribute "linkedin" is_json=True %}{"custom_link_format": "", "enabled": true, "network": "linkedin", "img_src": "//cdn2.hubspot.net/hubfs/XXXXXX/emails/icons/linkedin.png"}{% end_widget_attribute %}
+                                                              {% widget_attribute "facebook" is_json=True %}{"custom_link_format": "", "enabled": true, "network": "facebook", "img_src": "//cdn2.hubspot.net/hubfs/XXXXXX/emails/icons/facebook.png"}{% end_widget_attribute %}
+                                                              {% widget_attribute "email" is_json=True %}{"custom_link_format": "", "enabled": false, "network": "email"}{% end_widget_attribute %}{% end_widget_block %}
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                              </td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                              </tr>
+                          </table>
+                      </td>
+                  </tr>
+                  
+                  <tr>
+                      <td align="center" valign="top">
+                          <table class="container">
+                              <tr>
+                                  <td align="center" valign="top" class="logo email-padding">
+                                    {% linked_image "email_logo" label='Logo', alt='', src='//cdn2.hubspot.net/hubfs/XXXXXX/emails/logos/logo-wide.png', link='', open_in_new_tab=True %}
+                                  </td>
+                              </tr>
+                          </table>
+                      </td>
+                  </tr>
+                  
+                  <tr>
+                      <td align="center" valign="top" class="email-body email-body-top">
+                          <table class="container">
+                              <tr>
+                                  <td align="center" valign="top" class="email-padding">
+                                      <table class="container">
+                                          <tr>
+                                              <td align="center" valign="top" class="email-content" colspan="2">
+                                                {% content_attribute "email_body" %}
+                                                  <h1>Lorem ipsum dolor sit amet</h1>
+                                                  <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nos.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                                {% end_content_attribute %}
+                                                
+                                                {% cta "cta" label='CTA', guid='6d6f3784-4ab8-4bb5-9550-48f965d957cd' %}
+                                              </td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                              </tr>
+                          </table>
+                      </td>
+                  </tr>
+                  
+                  <tr>
+                      <td align="center" valign="top" class="spacer">
+                      </td>
+                  </tr>
+                  
+                  <tr>
+                      <td align="center" valign="top" class="email-sections">
+                          <table class="container">
+                              <tr>
+                                  <td align="left" valign="top" class="email-section email-padding">
+                                    {% custom_widget "section_1" widget_name='Section 1', label='Item' %}
+                                  </td>
+                              </tr>
+                          </table>
+                      </td>
+                  </tr>
+                  
+                  <tr>
+                      <td align="center" valign="top" class="spacer">
+                      </td>
+                  </tr>
+                  
+                  <tr>
+                      <td align="center" valign="top" class="email-sections">
+                          <table class="container">
+                              <tr>
+                                  <td align="left" valign="top" class="email-section email-padding">
+                                    {% custom_widget "section_2" widget_name='Section 2', label='Item' %}
+                                  </td>
+                              </tr>
+                          </table>
+                      </td>
+                  </tr>
+                  
+                  <tr>
+                      <td align="center" valign="top" class="spacer">
+                      </td>
+                  </tr>
+                  
+                  <tr>
+                      <td align="center" valign="top" class="email-sections">
+                          <table class="container">
+                              <tr>
+                                  <td align="left" valign="top" class="email-section email-padding">
+                                    {% custom_widget "section_3" widget_name='Section 3', label='Item' %}
+                                  </td>
+                              </tr>
+                          </table>
+                      </td>
+                  </tr>
+                  
+                  <tr>
+                      <td align="center" valign="top" class="spacer">
+                      </td>
+                  </tr>
+                  
+                  <tr>
+                      <td align="center" valign="top" class="email-body email-body-bottom">
+                          <table class="container">
+                              <tr>
+                                  <td align="center" valign="top" class="email-padding">
+                                      <table class="container">
+                                          <tr>
+                                              <td align="left" valign="top" class="email-content">
+                                                {% widget_block rich_text "email_content" overrideable=True, label='Bottom Content'  %}
+                                                  {% widget_attribute "html" %}
+                                                    <h2>Lorem Ipsum Dolor Sit</h2>
+                                                    <p><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</a><br>Excepteur sint occaecat cupid, in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                                    <p><a href="#">Icididunt ut labore et dolore magna enim ad minim quis nostrud</a><br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+                                                    <p><a href="#">Consectetur adipisicing elit, sed do eiusmod</a><br>Excepteur sint occaecat cupid, in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                                    <p><a href="#">Duis aute irure dolor in reprehenderit in voluptate velit esse</a><br>Cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.</p>
+                                                  {% end_widget_attribute %}
+                                                {% end_widget_block %}
+                                              </td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                              </tr>
+                          </table>
+                      </td>
+                  </tr>
+                  
+                  <tr>
+                      <td align="center" valign="top">
+                          <table class="container">
+                              <tr>
+                                  <td align="left" valign="top" class="email-footer">
+                                      <!-- Office location information and unsubscribe links -->
+                                      <p id="footer">
+                                          {{ site_settings.company_name }}&nbsp;
+                                          {{ site_settings.company_street_address_1 }}&nbsp;
+                                          {{ site_settings.company_street_address_2 }}&nbsp;
+                                          {{ site_settings.company_city }}&nbsp;
+                                          {{ site_settings.company_state }}&nbsp;
+                                          {{ site_settings.company_zip }}&nbsp;
+                                          {{ site_settings.company_country }}&nbsp;
+                                          <br/><br/>
+                                          You received this email because you are subscribed to {{ subscription_name }} from {{ site_settings.company_name }}.
+                                          <br/><br/>
+                                          Update your <a class="hubspot-mergetag" data-unsubscribe="true" href="{{ unsubscribe_link }}">email preferences</a> to choose the types of emails you receive.
+                                          <br/><br/>
+                                          <a class="hubspot-mergetag" data-unsubscribe="true" href="{{ unsubscribe_link_all }}">Unsubscribe from all future emails</a>
+                                      </p>
+                                  </td>
+                              </tr>
+                          </table>
+                      </td>
+                  </tr>
+              </table>
+            </center>
+          </td>
+        </tr>
+      </table>
+    </body>
+</html>
